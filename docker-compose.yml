@@ -1,0 +1,17 @@
+version: '3.7'
+
+services:
+  node-app:
+    user: root
+    restart: always
+    build:
+      context: .
+    ports:
+      - "3008:3008"
+    volumes:
+      - ./emals:/usr/src/app/emals
+    networks:
+      - custom_network
+networks:
+  custom_network:
+    external: true
